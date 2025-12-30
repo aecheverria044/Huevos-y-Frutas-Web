@@ -1,26 +1,52 @@
-import { Apple, Carrot, Package } from "lucide-react";
+import frutasImg from "@/assets/products/frutas.jpg";
+import verdurasImg from "@/assets/products/verduras.jpg";
+import huevosImg from "@/assets/products/huevos.jpg";
+import legumbresImg from "@/assets/products/legumbres.jpg";
+import panImg from "@/assets/products/pan.jpg";
+import embutidosImg from "@/assets/products/embutidos.jpg";
+import conservasImg from "@/assets/products/conservas.jpg";
+import vinoImg from "@/assets/products/vino.jpg";
 
-const categories = [
+const products = [
   {
-    icon: Apple,
-    title: "Frutas de Temporada",
-    description: "Naranjas, fresas, cerezas, melocotones, uvas y mucho más según la época del año.",
-    items: ["Naranjas", "Fresas", "Manzanas", "Peras", "Uvas", "Cerezas"],
-    color: "primary",
+    title: "Frutas",
+    description: "Naranjas, manzanas, peras, fresas y frutas de temporada directas del campo.",
+    image: frutasImg,
   },
   {
-    icon: Carrot,
-    title: "Verduras de Temporada",
-    description: "Tomates, pimientos, calabacines, lechugas y hortalizas recién cosechadas.",
-    items: ["Tomates", "Lechugas", "Pimientos", "Calabacines", "Berenjenas", "Espinacas"],
-    color: "leaf",
+    title: "Verduras",
+    description: "Tomates, lechugas, pimientos, zanahorias y hortalizas frescas cada día.",
+    image: verdurasImg,
   },
   {
-    icon: Package,
-    title: "Productos Locales",
-    description: "Aceite de oliva, miel, mermeladas y conservas artesanales de productores cercanos.",
-    items: ["Aceite de oliva", "Miel", "Mermeladas", "Conservas", "Frutos secos", "Huevos"],
-    color: "earth",
+    title: "Huevos",
+    description: "Huevos frescos de gallinas camperas de productores locales.",
+    image: huevosImg,
+  },
+  {
+    title: "Legumbres",
+    description: "Lentejas, garbanzos, alubias y legumbres de la mejor calidad.",
+    image: legumbresImg,
+  },
+  {
+    title: "Pan de Cercanía",
+    description: "Pan artesano recién horneado de panaderías locales.",
+    image: panImg,
+  },
+  {
+    title: "Embutidos",
+    description: "Chorizo, salchichón y embutidos tradicionales españoles.",
+    image: embutidosImg,
+  },
+  {
+    title: "Conservas",
+    description: "Conservas artesanales, encurtidos y productos en tarro.",
+    image: conservasImg,
+  },
+  {
+    title: "Vino de Rioja",
+    description: "Selección de vinos D.O. Rioja de bodegas de la región.",
+    image: vinoImg,
   },
 ];
 
@@ -28,7 +54,7 @@ const Products = () => {
   return (
     <section
       id="productos"
-      className="py-20 md:py-28"
+      className="py-20 md:py-28 bg-muted/30"
       aria-labelledby="products-heading"
     >
       <div className="container px-4">
@@ -40,46 +66,49 @@ const Products = () => {
             id="products-heading"
             className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6"
           >
-            Frescura en cada temporada
+            Todo lo que necesitas, fresco y local
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Descubre nuestra selección de productos Km0, siempre frescos y de la mejor calidad.
+            Frutas, verduras, huevos, pan y mucho más. Productos de proximidad seleccionados con cariño.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <article
-                key={category.title}
-                className="group bg-card rounded-3xl p-6 md:p-8 shadow-soft hover:shadow-card transition-shadow"
-              >
-                <div className={`w-16 h-16 mb-6 bg-${category.color}/10 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform`}>
-                  <Icon className={`w-8 h-8 text-${category.color}`} />
-                </div>
-                
-                <h3 className="text-xl font-display font-semibold text-foreground mb-3">
-                  {category.title}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+          {products.map((product) => (
+            <article
+              key={product.title}
+              className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="aspect-square overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-display font-semibold text-foreground mb-1">
+                  {product.title}
                 </h3>
-                
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  {category.description}
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {product.description}
                 </p>
+              </div>
+            </article>
+          ))}
+        </div>
 
-                <ul className="flex flex-wrap gap-2">
-                  {category.items.map((item) => (
-                    <li
-                      key={item}
-                      className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            );
-          })}
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 rounded-full">
+            <span className="text-sm font-medium text-foreground">
+              🌿 Participamos en
+            </span>
+            <span className="text-sm font-bold text-primary">Too Good To Go</span>
+            <span className="text-sm text-muted-foreground">
+              — Reducimos el desperdicio alimentario
+            </span>
+          </div>
         </div>
       </div>
     </section>
