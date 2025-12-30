@@ -1,3 +1,4 @@
+import { Apple, Carrot, Egg, Bean, Croissant, Drumstick, Package, Wine } from "lucide-react";
 import frutasImg from "@/assets/products/frutas.jpg";
 import verdurasImg from "@/assets/products/verduras.jpg";
 import huevosImg from "@/assets/products/huevos.jpg";
@@ -12,41 +13,49 @@ const products = [
     title: "Frutas",
     description: "Naranjas, manzanas, peras, fresas y frutas de temporada directas del campo.",
     image: frutasImg,
+    icon: Apple,
   },
   {
     title: "Verduras",
     description: "Tomates, lechugas, pimientos, zanahorias y hortalizas frescas cada día.",
     image: verdurasImg,
+    icon: Carrot,
   },
   {
     title: "Huevos",
     description: "Huevos frescos de gallinas camperas de productores locales.",
     image: huevosImg,
+    icon: Egg,
   },
   {
     title: "Legumbres",
     description: "Lentejas, garbanzos, alubias y legumbres de la mejor calidad.",
     image: legumbresImg,
+    icon: Bean,
   },
   {
     title: "Pan de Cercanía",
     description: "Pan artesano recién horneado de panaderías locales.",
     image: panImg,
+    icon: Croissant,
   },
   {
     title: "Embutidos",
     description: "Chorizo, salchichón y embutidos tradicionales españoles.",
     image: embutidosImg,
+    icon: Drumstick,
   },
   {
     title: "Conservas",
     description: "Conservas artesanales, encurtidos y productos en tarro.",
     image: conservasImg,
+    icon: Package,
   },
   {
     title: "Vino de Rioja",
     description: "Selección de vinos D.O. Rioja de bodegas de la región.",
     image: vinoImg,
+    icon: Wine,
   },
 ];
 
@@ -54,19 +63,19 @@ const Products = () => {
   return (
     <section
       id="productos"
-      className="py-20 md:py-28 bg-muted/30"
+      className="py-24 md:py-32 bg-background"
       aria-labelledby="products-heading"
     >
       <div className="container px-4">
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider uppercase text-primary bg-orange-light rounded-full">
             Nuestros Productos
           </span>
           <h2
             id="products-heading"
-            className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6"
           >
-            Todo lo que necesitas, fresco y local
+            Todo lo que necesitas, <span className="text-primary">fresco y local</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Frutas, verduras, huevos, pan y mucho más. Productos de proximidad seleccionados con cariño.
@@ -74,40 +83,63 @@ const Products = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
-          {products.map((product) => (
-            <article
-              key={product.title}
-              className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-display font-semibold text-foreground mb-1">
-                  {product.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </article>
-          ))}
+          {products.map((product) => {
+            const Icon = product.icon;
+            return (
+              <article
+                key={product.title}
+                className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/20 shadow-soft hover:shadow-card transition-all duration-300 hover-lift"
+              >
+                <div className="relative aspect-square overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-primary-foreground" />
+                      </div>
+                      <h3 className="text-lg font-display font-semibold text-background">
+                        {product.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                    {product.description}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 rounded-full">
-            <span className="text-sm font-medium text-foreground">
-              🌿 Participamos en
-            </span>
-            <span className="text-sm font-bold text-primary">Too Good To Go</span>
-            <span className="text-sm text-muted-foreground">
-              — Reducimos el desperdicio alimentario
-            </span>
+        {/* Too Good To Go banner */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="relative overflow-hidden bg-foreground rounded-3xl p-8 md:p-12">
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-background mb-2">
+                  Participamos en Too Good To Go
+                </h3>
+                <p className="text-background/70 max-w-xl">
+                  Nuestra tienda del Centro colabora con la app para reducir el desperdicio alimentario. 
+                  Consigue productos frescos a precio reducido.
+                </p>
+              </div>
+              <a
+                href="#tiendas"
+                className="flex-shrink-0 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-orange-dark transition-colors"
+              >
+                Ver tienda
+              </a>
+            </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
           </div>
         </div>
       </div>
