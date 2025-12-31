@@ -3,30 +3,32 @@ import { Button } from "@/components/ui/button";
 
 const stores = [
   {
-    name: "Tienda Centro",
-    address: "Calle Mayor, 42",
-    city: "28001 Madrid",
-    phone: "+34 912 345 678",
+    name: "Tienda Beato Tomás",
+    address: "Beato Tomás de Zumárraga, 32",
+    city: "01008 Vitoria-Gasteiz",
+    phone: "+34 945 123 456",
     hours: [
       { days: "Lunes a Viernes", time: "9:00 - 14:00 / 17:00 - 20:30" },
       { days: "Sábados", time: "9:00 - 14:00" },
       { days: "Domingos", time: "Cerrado" },
     ],
-    mapUrl: "https://maps.google.com/?q=Calle+Mayor+42+Madrid",
+    mapUrl: "https://maps.google.com/?q=Beato+Tomas+de+Zumarraga+32+Vitoria-Gasteiz",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2926.5!2d-2.6726!3d42.8467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc265e71c3b7b%3A0x0!2sBeato%20Tom%C3%A1s%20de%20Zum%C3%A1rraga%2C%2032%2C%2001008%20Vitoria-Gasteiz!5e0!3m2!1ses!2ses!4v1700000000000",
     features: ["Too Good To Go", "Parking cercano"],
     tooGoodToGo: true,
   },
   {
-    name: "Tienda Norte",
-    address: "Avenida de la Paz, 15",
-    city: "28002 Madrid",
-    phone: "+34 912 345 679",
+    name: "Tienda Gorbea",
+    address: "Calle Gorbea, 40",
+    city: "01008 Vitoria-Gasteiz",
+    phone: "+34 945 654 321",
     hours: [
       { days: "Lunes a Viernes", time: "9:00 - 14:30 / 17:30 - 21:00" },
       { days: "Sábados", time: "9:00 - 15:00" },
       { days: "Domingos", time: "Cerrado" },
     ],
-    mapUrl: "https://maps.google.com/?q=Avenida+de+la+Paz+15+Madrid",
+    mapUrl: "https://maps.google.com/?q=Calle+Gorbea+40+Vitoria-Gasteiz",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2926.5!2d-2.6726!3d42.8467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc265e71c3b7b%3A0x0!2sCalle%20Gorbea%2C%2040%2C%2001008%20Vitoria-Gasteiz!5e0!3m2!1ses!2ses!4v1700000000000",
     features: ["Aparcamiento propio"],
     tooGoodToGo: false,
   },
@@ -61,18 +63,21 @@ const Stores = () => {
               key={store.name}
               className="bg-card rounded-3xl overflow-hidden border border-border shadow-soft hover:shadow-card transition-all duration-300"
             >
-              {/* Map placeholder */}
-              <div className="relative h-48 bg-muted">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center">
-                      <MapPin className="w-8 h-8 text-primary" />
-                    </div>
-                    <p className="text-sm text-muted-foreground">Google Maps</p>
-                  </div>
-                </div>
+              {/* Google Maps Embed */}
+              <div className="relative h-48 bg-muted overflow-hidden">
+                <iframe
+                  src={store.mapEmbed}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa de ${store.name}`}
+                  className="absolute inset-0"
+                />
                 {store.tooGoodToGo && (
-                  <div className="absolute top-4 right-4 px-3 py-1.5 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
+                  <div className="absolute top-4 right-4 px-3 py-1.5 bg-primary text-primary-foreground text-xs font-semibold rounded-full shadow-lg">
                     Too Good To Go
                   </div>
                 )}
