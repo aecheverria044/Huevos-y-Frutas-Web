@@ -124,20 +124,35 @@ const Products = () => {
           <div className="relative overflow-hidden bg-foreground rounded-3xl p-8 md:p-12">
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-background mb-2">
-                  Participamos en Too Good To Go
-                </h3>
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
+                  <div className="w-12 h-12 bg-[#024642] rounded-xl flex items-center justify-center">
+                    <span className="text-2xl">🥡</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-background">
+                    Too Good To Go
+                  </h3>
+                </div>
                 <p className="text-background/70 max-w-xl">
-                  Nuestra tienda del Centro colabora con la app para reducir el desperdicio alimentario. 
-                  Consigue productos frescos a precio reducido.
+                  Nuestra tienda de Beato Tomás colabora con la app para reducir el desperdicio alimentario. 
+                  ¡Consigue productos frescos a precio reducido!
                 </p>
               </div>
-              <a
-                href="#tiendas"
-                className="flex-shrink-0 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-orange-dark transition-colors"
-              >
-                Ver tienda
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://www.toogoodtogo.com/es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 px-8 py-3 bg-[#024642] text-white font-semibold rounded-full hover:bg-[#013330] transition-colors text-center"
+                >
+                  Abrir App
+                </a>
+                <a
+                  href="#tiendas"
+                  className="flex-shrink-0 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-orange-dark transition-colors text-center"
+                >
+                  Ver tienda
+                </a>
+              </div>
             </div>
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
           </div>
