@@ -1,25 +1,46 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Mail, Send, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Mensaje enviado",
-      description: "Te responderemos lo antes posible. ¡Gracias!",
-    });
-    setFormData({ name: "", email: "", message: "" });
+
+    if (!formRef.current) return;
+
+    emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast({
+          title: "Mensaje enviado",
+          description: "Te responderemos lo antes posible. ¡Gracias!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        toast({
+          title: "Error enviando mensaje",
+          description: "Intenta nuevamente más tarde.",
+        });
+        console.error(error.text);
+      });
   };
 
   return (
@@ -47,7 +68,11 @@ const Contact = () => {
         <div className="grid lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="bg-card rounded-3xl p-8 border border-border shadow-soft">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="bg-card rounded-3xl p-8 border border-border shadow-soft"
+            >
               <div className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
@@ -56,6 +81,7 @@ const Contact = () => {
                     </label>
                     <Input
                       id="name"
+                      name="name"
                       type="text"
                       placeholder="Tu nombre"
                       value={formData.name}
@@ -70,6 +96,7 @@ const Contact = () => {
                     </label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="info@huevosyfrutas.com"
                       value={formData.email}
@@ -85,6 +112,7 @@ const Contact = () => {
                   </label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="¿En qué podemos ayudarte?"
                     rows={5}
                     value={formData.message}
@@ -138,7 +166,6 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-
 
             <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
               <h3 className="text-lg font-display font-semibold mb-2">
