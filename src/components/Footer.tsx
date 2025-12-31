@@ -55,30 +55,30 @@ const Footer = () => {
 
           {/* Store 1 */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4">Tienda Centro</h3>
+            <h3 className="font-display font-semibold text-lg mb-4"></h3>
             <address className="not-italic space-y-3 text-sm">
               <div className="flex items-start gap-2 text-background/60">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Calle Mayor, 42<br />28001 Madrid</span>
+                <span>Beato Tomas de Zumárraga, 32<br />01008 Vitoria-Gasteiz</span>
               </div>
-              <a href="tel:+34912345678" className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors">
+              <a href="tel:+34699496431" className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                +34 912 345 678
+                +34 699 496 431
               </a>
             </address>
           </div>
 
           {/* Store 2 */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4">Tienda Norte</h3>
+            <h3 className="font-display font-semibold text-lg mb-4"></h3>
             <address className="not-italic space-y-3 text-sm">
               <div className="flex items-start gap-2 text-background/60">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Avenida de la Paz, 15<br />28002 Madrid</span>
+                <span>Gorbea, 40<br />01012 Vitoria-Gasteiz</span>
               </div>
-              <a href="tel:+34912345679" className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors">
+              <a href="tel:+34699496431" className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                +34 912 345 679
+                +34 699 496 431
               </a>
             </address>
           </div>
@@ -88,9 +88,6 @@ const Footer = () => {
         <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/40 text-sm">
             © {currentYear} Huevos y Frutas. Todos los derechos reservados.
-          </p>
-          <p className="text-background/40 text-sm">
-            Colaboramos con <span className="text-primary font-medium">Too Good To Go</span>
           </p>
         </div>
       </div>

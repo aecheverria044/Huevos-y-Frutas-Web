@@ -71,7 +71,7 @@ const Contact = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="tu@email.com"
+                      placeholder="info@huevosyfrutas.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
@@ -113,27 +113,15 @@ const Contact = () => {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="tel:+34912345678"
+                  href="tel:+34699496431"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-10 h-10 bg-orange-light rounded-lg flex items-center justify-center">
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Tienda Centro</p>
-                    <p className="font-medium text-foreground">+34 912 345 678</p>
-                  </div>
-                </a>
-                <a
-                  href="tel:+34912345679"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <div className="w-10 h-10 bg-orange-light rounded-lg flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Tienda Norte</p>
-                    <p className="font-medium text-foreground">+34 912 345 679</p>
+                    <p className="text-sm text-muted-foreground">Numero de telefono</p>
+                    <p className="font-medium text-foreground">+34 699 496 431</p>
                   </div>
                 </a>
                 <a

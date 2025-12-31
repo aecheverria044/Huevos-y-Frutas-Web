@@ -32,25 +32,25 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Huevos y Frutas",
-            "description": "Frutas, verduras, huevos, pan y productos locales Km0 en Madrid",
+            "description": "Frutas, verduras, huevos, pan y productos locales Km0 en Vitoria-Gasteiz.",
             "address": [
               {
                 "@type": "PostalAddress",
-                "streetAddress": "Calle Mayor, 42",
-                "addressLocality": "Madrid",
-                "postalCode": "28001",
+                "streetAddress": "Beato Tomas de Zumárraga, 32",
+                "addressLocality": "Vitoria-Gasteiz",
+                "postalCode": "01008",
                 "addressCountry": "ES"
               },
               {
                 "@type": "PostalAddress",
-                "streetAddress": "Avenida de la Paz, 15",
-                "addressLocality": "Madrid",
-                "postalCode": "28002",
+                "streetAddress": "Gorbea, 40",
+                "addressLocality": "Vitoria-Gasteiz",
+                "postalCode": "01012",
                 "addressCountry": "ES"
               }
             ],
-            "telephone": ["+34912345678", "+34912345679"],
-            "openingHours": ["Mo-Fr 09:00-14:00", "Mo-Fr 17:00-20:30", "Sa 09:00-14:00"]
+            "telephone": ["+34699496431"],
+            "openingHours": ["Mo-Fr 09:00-14:00", "Mo-Fr 17:30-20:00", "Sa 09:00-14:00"]
           })}
         </script>
       </Helmet>

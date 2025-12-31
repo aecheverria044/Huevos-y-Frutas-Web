@@ -1,53 +1,53 @@
 import { Apple, Carrot, Egg, Bean, Croissant, Drumstick, Package, Wine } from "lucide-react";
-import frutasImg from "@/assets/products/frutas.jpg";
-import verdurasImg from "@/assets/products/verduras.jpg";
-import huevosImg from "@/assets/products/huevos.jpg";
-import legumbresImg from "@/assets/products/legumbres.jpg";
-import panImg from "@/assets/products/pan.jpg";
-import embutidosImg from "@/assets/products/embutidos.jpg";
-import conservasImg from "@/assets/products/conservas.jpg";
+import fruitsImg from "@/assets/products/fruits.jpg";
+import vegetablesImg from "@/assets/products/vegetables.jpg";
+import eggsImg from "@/assets/products/eggs.jpg";
+import legumesImg from "@/assets/products/legumes.jpg";
+import breadImg from "@/assets/products/Bread.jpg";
+import embutidosImg from "@/assets/products/Cheese.jpg";
+import conservasImg from "@/assets/products/preserves.jpg";
 import vinoImg from "@/assets/products/vino.jpg";
 
 const products = [
   {
     title: "Frutas",
     description: "Naranjas, manzanas, peras, fresas y frutas de temporada directas del campo.",
-    image: frutasImg,
+    image: fruitsImg,
     icon: Apple,
   },
   {
     title: "Verduras",
     description: "Tomates, lechugas, pimientos, zanahorias y hortalizas frescas cada día.",
-    image: verdurasImg,
+    image: vegetablesImg,
     icon: Carrot,
   },
   {
     title: "Huevos",
     description: "Huevos frescos de gallinas camperas de productores locales.",
-    image: huevosImg,
+    image: eggsImg,
     icon: Egg,
   },
   {
     title: "Legumbres",
     description: "Lentejas, garbanzos, alubias y legumbres de la mejor calidad.",
-    image: legumbresImg,
+    image: legumesImg,
     icon: Bean,
   },
   {
     title: "Pan de Cercanía",
     description: "Pan artesano recién horneado de panaderías locales.",
-    image: panImg,
+    image: breadImg,
     icon: Croissant,
   },
   {
-    title: "Embutidos",
-    description: "Chorizo, salchichón y embutidos tradicionales españoles.",
+    title: "Quesos y Embutidos",
+    description: "Quesos, chorizo y salchichón.",
     image: embutidosImg,
     icon: Drumstick,
   },
   {
     title: "Conservas",
-    description: "Conservas artesanales, encurtidos y productos en tarro.",
+    description: "Conservas, encurtidos y productos en tarro.",
     image: conservasImg,
     icon: Package,
   },
