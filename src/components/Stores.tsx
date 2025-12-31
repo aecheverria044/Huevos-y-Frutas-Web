@@ -73,7 +73,7 @@ const Stores = () => {
                     rel="noopener noreferrer"
                     className="absolute top-4 right-4 px-3 py-1.5 bg-[#024642] text-white text-xs font-semibold rounded-full shadow-lg hover:bg-[#013330] transition-colors"
                   >
-                    🥡 Too Good To Go
+                   Too Good To Go
                   </a>
                 )}
               </div>
