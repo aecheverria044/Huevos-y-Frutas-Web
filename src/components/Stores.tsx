@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 
 const stores = [
   {
-    name: "Tienda Beato Tomás",
+    name: "Calle Beato Tomás de Zumarraga",
     address: "Beato Tomás de Zumárraga, 32",
     city: "01008 Vitoria-Gasteiz",
-    phone: "+34 945 123 456",
+    phone: "+34 699 496 431",
     hours: [
-      { days: "Lunes a Viernes", time: "9:00 - 14:00 / 17:00 - 20:30" },
+      { days: "Lunes a Viernes", time: "9:00 - 14:00 / 17:30 - 20:00" },
       { days: "Sábados", time: "9:00 - 14:00" },
       { days: "Domingos", time: "Cerrado" },
     ],
@@ -18,18 +18,17 @@ const stores = [
     tooGoodToGo: true,
   },
   {
-    name: "Tienda Gorbea",
+    name: "Calle Gorbea",
     address: "Calle Gorbea, 40",
-    city: "01008 Vitoria-Gasteiz",
-    phone: "+34 945 654 321",
+    city: "01012 Vitoria-Gasteiz",
+    phone: "+34 699 496 431",
     hours: [
-      { days: "Lunes a Viernes", time: "9:00 - 14:30 / 17:30 - 21:00" },
-      { days: "Sábados", time: "9:00 - 15:00" },
+      { days: "Lunes a Viernes", time: "9:00 - 14:00 / 17:30 - 20:00" },
+      { days: "Sábados", time: "9:00 - 14:00" },
       { days: "Domingos", time: "Cerrado" },
     ],
     mapUrl: "https://maps.google.com/?q=Calle+Gorbea+40+Vitoria-Gasteiz",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2926.5!2d-2.6726!3d42.8467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc265e71c3b7b%3A0x0!2sCalle%20Gorbea%2C%2040%2C%2001008%20Vitoria-Gasteiz!5e0!3m2!1ses!2ses!4v1700000000000",
-    features: ["Aparcamiento propio"],
     tooGoodToGo: false,
   },
 ];
